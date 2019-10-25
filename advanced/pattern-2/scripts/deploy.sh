@@ -185,18 +185,6 @@ ${KUBERNETES_CLIENT} create configmap apim-pub-store-tm-2-conf-datasources --fro
 ${KUBERNETES_CLIENT} create configmap apim-gateway-conf --from-file=../confs/apim-gateway/
 ${KUBERNETES_CLIENT} create configmap apim-gateway-conf-axis2 --from-file=../confs/apim-gateway/axis2
 
-# Kubernetes MySQL deployment (recommended only for evaluation purposes)
-echoBold 'Deploying WSO2 API Manager Databases in MySQL...'
-# create a Kubernetes ConfigMap for MySQL database initialization script
-${KUBERNETES_CLIENT} create configmap mysql-dbscripts --from-file=../extras/confs/rdbms/mysql/dbscripts/
-# create Kubernetes persistent storage resources for persisting database data
-${KUBERNETES_CLIENT} create -f ../extras/rdbms/volumes/persistent-volumes.yaml
-${KUBERNETES_CLIENT} create -f ../extras/rdbms/mysql/mysql-persistent-volume-claim.yaml
-# create a Kubernetes Deployment for MySQL
-${KUBERNETES_CLIENT} create -f ../extras/rdbms/mysql/mysql-deployment.yaml
-# create a Kubernetes Service for MySQL
-${KUBERNETES_CLIENT} create -f ../extras/rdbms/mysql/mysql-service.yaml
-sleep 30s
 
 echoBold 'Creating Kubernetes Services...'
 ${KUBERNETES_CLIENT} create -f ../apim-analytics/wso2apim-analytics-service.yaml

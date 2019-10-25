@@ -36,11 +36,11 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                    <url>jdbc:mysql://wso2apim-pattern-2-rdbms-service:3306/WSO2AM_APIMGT_DB?autoReconnect=true&amp;useSSL=false</url>
+                    <url>jdbc:postgresql://wso2apim-pattern-2-rdbms-service:5432/WSO2AM_APIMGT_DB?autoReconnect=true&amp;useSSL=false</url>
                     <username>wso2carbon</username>
                     <password>wso2carbon</password>
                     <defaultAutoCommit>false</defaultAutoCommit>
-                    <driverClassName>com.mysql.jdbc.Driver</driverClassName>
+                    <driverClassName>org.postgresql.Driver</driverClassName>
                     <maxActive>50</maxActive>
                     <maxWait>60000</maxWait>
                     <testOnBorrow>true</testOnBorrow>
@@ -58,10 +58,10 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                    <url>jdbc:mysql://wso2apim-pattern-2-rdbms-service:3306/WSO2AM_USER_DB?autoReconnect=true&amp;useSSL=false</url>
+                    <url>jdbc:postgresql://wso2apim-pattern-2-rdbms-service:5432/WSO2AM_USER_DB?autoReconnect=true&amp;useSSL=false</url>
                     <username>wso2carbon</username>
                     <password>wso2carbon</password>
-                    <driverClassName>com.mysql.jdbc.Driver</driverClassName>
+                    <driverClassName>org.postgresql.Driver</driverClassName>
                     <maxActive>50</maxActive>
                     <maxWait>60000</maxWait>
                     <testOnBorrow>true</testOnBorrow>
@@ -79,10 +79,10 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                    <url>jdbc:mysql://wso2apim-pattern-2-rdbms-service:3306/WSO2AM_REG_DB?autoReconnect=true&amp;useSSL=false</url>
+                    <url>jdbc:postgresql://wso2apim-pattern-2-rdbms-service:5432/WSO2AM_REG_DB?autoReconnect=true&amp;useSSL=false</url>
                     <username>wso2carbon</username>
                     <password>wso2carbon</password>
-                    <driverClassName>com.mysql.jdbc.Driver</driverClassName>
+                    <driverClassName>org.postgresql.Driver</driverClassName>
                     <maxActive>50</maxActive>
                     <maxWait>60000</maxWait>
                     <testOnBorrow>true</testOnBorrow>

@@ -12,15 +12,6 @@ This consists of a deployment of WSO2 API Manager with a separate Gateway and a 
 
 ## Prerequisites
 
-* In order to use Docker images with WSO2 updates, you need an active WSO2 subscription. If you do not possess an active WSO2
-  subscription, you can sign up for a WSO2 Free Trial Subscription from [here](https://wso2.com/free-trial-subscription).
-  Otherwise, you can proceed with Docker images which are created using GA releases.<br><br>
-
-* Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-in order to run the steps provided in the following quick start guide.<br><br>
-
-* An already setup [Kubernetes cluster](https://kubernetes.io/docs/setup/pick-right-solution/).<br><br>
-
 * A pre-configured Network File System (NFS) to be used as the persistent volume for artifact sharing and persistence.
 In the NFS server instance, create a Linux system user account named `wso2carbon` with user id `802` and a system group named `wso2` with group id `802`.
 Add the `wso2carbon` user to the group `wso2`.
@@ -28,9 +19,7 @@ Add the `wso2carbon` user to the group `wso2`.
   ```
   groupadd --system -g 802 wso2
   useradd --system -g 802 -u 802 wso2carbon
-  ```  
-  > If you are using AKS(Azure Kubernetes Service) as the kubernetes provider, it is possible to use Azurefiles for persistent storage instead of an NFS. If doing so, skip this step.
-
+  
 ## Quick Start Guide
 
 >In the context of this document, `KUBERNETES_HOME` will refer to a local copy of the [`wso2/kubernetes-apim`](https://github.com/wso2/kubernetes-apim/)
@@ -94,13 +83,14 @@ The Kubernetes Deployment definition file(s) that need to be updated are as foll
 * `<KUBERNETES_HOME>/advanced/pattern-2/apim-pub-store-tm/wso2apim-pub-store-tm-1-deployment.yaml`
 * `<KUBERNETES_HOME>/advanced/pattern-2/apim-pub-store-tm/wso2apim-pub-store-tm-2-deployment.yaml`
 
-If you are using WSO2 API Manager's Key Manager profile, edit the following file.
-
-* `<KUBERNETES_HOME>/advanced/pattern-2/apim-km/wso2apim-km-deployment.yaml`
 
 Else, if you are using WSO2 Identity Server as Key Manager, edit the following file.
 
 * `<KUBERNETES_HOME>/advanced/pattern-2/apim-is-as-km/wso2apim-is-as-km-deployment.yaml`
+
+
+
+
 
 ##### 4. Setup product database(s).
 

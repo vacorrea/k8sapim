@@ -364,10 +364,10 @@ wso2.datasources:
       definition:
         type: RDBMS
         configuration:
-          jdbcUrl: 'jdbc:mysql://wso2apim-pattern-2-rdbms-service:3306/WSO2_PERMISSIONS_DB'
+          jdbcUrl: 'jdbc:postgresql://wso2apim-pattern-2-rdbms-service:5432/WSO2_PERMISSIONS_DB'
           username: wso2carbon
           password: wso2carbon
-          driverClassName: com.mysql.jdbc.Driver
+          driverClassName: org.postgresql.Driver
           maxPoolSize: 10
           idleTimeout: 60000
           connectionTestQuery: SELECT 1
@@ -414,10 +414,10 @@ wso2.datasources:
       definition:
         type: RDBMS
         configuration:
-          jdbcUrl: 'jdbc:mysql://wso2apim-pattern-2-rdbms-service:3306/WSO2AM_ANALYTICS_DB'
+          jdbcUrl: 'jdbc:postgresql://wso2apim-pattern-2-rdbms-service:5432/WSO2AM_ANALYTICS_DB'
           username: wso2carbon
           password: wso2carbon
-          driverClassName: com.mysql.jdbc.Driver
+          driverClassName: org.postgresql.Driver
           maxPoolSize: 50
           idleTimeout: 60000
           connectionTestQuery: SELECT 1

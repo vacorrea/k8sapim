@@ -96,18 +96,6 @@ For **evaluation purposes**,
 for deploying the product databases, using MySQL in Kubernetes. However, this approach of product database deployment is
 **not recommended** for a production setup.
 
-* For using these Kubernetes resources,
-
-  > If you are using AKS(Azure Kubernetes Service) as the kubernetes provider, it is possible to use Azurefiles for persistent storage instead of an NFS. If doing so, skip this step.
-
-  Here, a Network File System (NFS) is needed to be used for persisting MySQL DB data.    
-  
-  Create and export a directory within the NFS server instance.
-        
-  Provide read-write-execute permissions to other users for the created folder.
-        
-  Update the Kubernetes Persistent Volume resource with the corresponding NFS server IP (`NFS_SERVER_IP`) and exported,
-  NFS server directory path (`NFS_LOCATION_PATH`) in `<KUBERNETES_HOME>/advanced/pattern-2/extras/rdbms/volumes/persistent-volumes.yaml`.
     
 In a **production grade setup**,
 
@@ -138,61 +126,12 @@ Change directory to `<KUBERNETES_HOME>/advanced/pattern-2/scripts` and execute t
 ```
 ./deploy.sh
 ```
-or
-```
-./azure-deploy.sh
-```
 
 **Note**:
 
 * By default, the deployment management script (i.e. `<KUBERNETES_HOME>/advanced/pattern-2/scripts/deploy.sh`) is configured to deploy
 WSO2 Identity Server as the Key Manager.
 
-* If you desire to use WSO2 API Manager's Key Manager profile
-
-    * Uncomment the following Kubernetes client commands in the deployment management script.
-    
-    ```
-    # Kubernetes ConfigMaps for WSO2 API Manager's Key Manager profile
-    ${KUBERNETES_CLIENT} create configmap apim-km-conf --from-file=../confs/apim-km/
-    ${KUBERNETES_CLIENT} create configmap apim-km-conf-axis2 --from-file=../confs/apim-km/axis2/
-    ${KUBERNETES_CLIENT} create configmap apim-km-conf-datasources --from-file=../confs/apim-km/datasources/
-    
-    ...
-    
-    # Kubernetes Service for WSO2 API Manager's Key Manager profile
-    ${KUBERNETES_CLIENT} create -f ../apim-km/wso2apim-km-service.yaml
-    
-    ...
-    
-    # Kubernetes Deployment for WSO2 API Manager's Key Manager profile
-    ${KUBERNETES_CLIENT} create -f ../apim-km/wso2apim-km-deployment.yaml
-    ```
-    
-    * Comment out the following Kubernetes client commands in the deployment management script,
-    to avoid the deployment of WSO2 Identity Server as Key Manager.
-    
-    ```
-    # Kubernetes ConfigMaps for WSO2 Identity Server as Key Manager
-    ${KUBERNETES_CLIENT} create configmap apim-is-as-km-conf --from-file=../confs/apim-is-as-km/
-    ${KUBERNETES_CLIENT} create configmap apim-is-as-km-conf-axis2 --from-file=../confs/apim-is-as-km/axis2/
-    ${KUBERNETES_CLIENT} create configmap apim-is-as-km-conf-datasources --from-file=../confs/apim-is-as-km/datasources/
-    
-    ...
-    
-    # Kubernetes Service for WSO2 Identity Server as Key Manager
-    ${KUBERNETES_CLIENT} create -f ../apim-is-as-km/wso2apim-is-as-km-service.yaml
-    
-    ...
-    
-    # Kubernetes Persistent Volume Claim for shaing runtime artifacts between WSO2 Identity Server as Key Manager pods
-    ${KUBERNETES_CLIENT} create -f ../apim-is-as-km/wso2apim-is-as-km-volume-claim.yaml
-    
-    ...
-    
-    # Kubernetes Deployment for WSO2 Identity Server as Key Manager
-    ${KUBERNETES_CLIENT} create -f ../apim-is-as-km/wso2apim-is-as-km-deployment.yaml
-    ```
 
 >To un-deploy, be on the same directory and execute the `undeploy.sh` or kubernetes provider specific undeploy shell script on the terminal.
 

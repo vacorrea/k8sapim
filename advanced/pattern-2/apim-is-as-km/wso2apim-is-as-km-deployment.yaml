@@ -82,11 +82,16 @@ spec:
           mountPath: /home/wso2carbon/wso2-config-volume/repository/conf/axis2
         - name: apim-is-as-km-conf-datasources
           mountPath: /home/wso2carbon/wso2-config-volume/repository/conf/datasources
+        - name: apim-additional-artifact-storage-volume
+          mountPath: "/home/wso2carbon/wso2-artifact-volume"
       serviceAccountName: "wso2svc-account"
       volumes:
       - name: apim-is-as-km-storage-volume
         persistentVolumeClaim:
           claimName: wso2apim-pattern-2-is-as-km-shared-server-volume-claim
+      - name: apim-additional-artifact-storage-volume
+        persistentVolumeClaim:
+          claimName: apim-additional-artifact-volume-claim
       - name: apim-is-as-km-conf
         configMap:
           name: apim-is-as-km-conf

@@ -26,3 +26,19 @@ spec:
   selector:
     matchLabels:
       purpose: wso2apim-pattern-2-gateway-shared
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: apim-additional-artifact-volume-claim
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: ""
+  selector:
+    matchLabels:
+      purpose: apim-additional-artifacts
