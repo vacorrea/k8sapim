@@ -35,8 +35,8 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                    <url>jdbc:postgresql://lnciasc-pgsql-prod01:5432/WSO2-Apim-Prod?autoReconnect=true&amp;useSSL=false</url>
-                    <username>WSO2API</username>
+                    <url>jdbc:postgresql://pgdbs:5432/wso2amdb?autoReconnect=true&amp;useSSL=false</url>
+                    <username>carbon</username>
                     <password>changepaswd</password>
                     <driverClassName>org.postgresql.Driver</driverClassName>
                     <maxActive>50</maxActive>
@@ -56,8 +56,8 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                    <url>jdbc:postgresql://lnciasc-pgsql-prod01:5432/WSO2-IS-Prod?autoReconnect=true&amp;useSSL=false</url>
-                    <username>WSO2API</username>
+                    <url>jdbc:postgresql://postgres:5432/wso2is?autoReconnect=true&amp;useSSL=false</url>
+                    <username>carbon</username>
                     <password>changeme</password>
                     <driverClassName>org.postgresql.Driver</driverClassName>
                     <maxActive>50</maxActive>
