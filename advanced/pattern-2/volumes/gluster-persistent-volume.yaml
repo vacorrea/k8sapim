@@ -1,0 +1,34 @@
+apiVersion: v1beta3
+kind: PersistentVolume
+metadata:
+  name: pvgs1a
+  labels:
+    purpose: wso2-apim-main
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  glusterfs:
+    path: wso2
+    endpoints: glusterfs-cluster
+    readOnly: true
+
+
+---
+
+apiVersion: v1beta3
+kind: PersistentVolume
+metadata:
+  name: pvgs-additional-artifacts-2a
+  labels:
+    purpose: wso2-apim-additional-artifacts
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  glusterfs:
+    path: wso2-additional
+    endpoints: glusterfs-cluster
+    readOnly: true

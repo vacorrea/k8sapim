@@ -29,7 +29,7 @@ spec:
 
 ---
 
-apiVersion: v1
+apiVersion: v1beta3
 kind: PersistentVolumeClaim
 metadata:
   name: apim-additional-artifact-volume-claim
@@ -42,4 +42,4 @@ spec:
   storageClassName: ""
   selector:
     matchLabels:
-      purpose: apim-additional-artifacts
+      purpose: wso2-apim-additional-artifacts
